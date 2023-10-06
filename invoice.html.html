@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dynamic Invoice Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="invoice.css" />
+</head>
+
+<body>
+  <div class="invoice-container">
+    <div  class="company">
+      <h2>MUHAMMAD SAGIR ALIYU & SONS</h2>
+      </div>
+      <div class="description">
+        <div> 
+          <h6>Dealers in all kind of iron,metals,nails,ceiling,plywood,roofing zinc,wood,pipes and cement such as:Dangote,Ashaka, & sokoto cement etc.</h6><HR><HR>
+            <div id="address">
+              <div>  
+              <h3>HEAD OFFICE</h3>
+              <h6>NO.35 MAIRUA ROAD,</h6>
+              <h6>P.O BOX 114 FUNTUA KATSINA STATE</h6>
+            </div>
+            <div id="phn">
+              <h6>08064940775</h6>
+              <h6>08065500170</h6>
+              <h6>08065305577</h6>
+            </div>
+            <div>
+            <h3>BRANCH OFFICE</h3>
+             
+            <h6>JIBWIS CENTRAL MOSQUE ZARIA ROAD, FUNTUA,KATSINA STATE</h6>
+
+            </div>
+            
+            </div>
+        </div>
+      </div><hr><hr>
+      
+      
+      
+    <div class="invoice-header">
+      <div>
+        <form id="form">
+          <label for="names">NAMES</label>
+          <input type="text" id="names"><br>
+          <label for="number">phone no.</label>
+          <input type="text" id="text">
+        </form>
+      </div>
+
+      <div class="title-date" id="date">
+        <input type="date">
+      
+       
+    </div>
+  </div><hr><hr>  
+    <div class="invoice-body">
+      <table>
+        <thead>
+          <tr>
+            <th>PRODUCT</th>
+            <th>UNIT</th>
+            <th>PRICE</th>
+            <th>AMOUNT</th>
+            <th style="margin-left: 20px;">ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr class="single-row">
+            <td>
+              <select class="product" onchange="getInput(1)">
+                <option value="">Select product</option>
+                <option value="3*1½ B " data-price="5200">3*1½ B</option>
+                <option value="2*2 B" data-price="4500">2*2 </option>
+                <option value="2 inch R/B" data-price="5500">2" R/B</option>
+                <option value="2*1 B" data-price="3350">2*1 B </option>
+                <option value="1½*1½ B" data-price="3350">1½*1½ B</option>
+                <option value="1*1 S/B" data-price="2300">1*1 S/B</option>
+                <option value="1*1 R/B" data-price="2700">1*1 R/B</option>
+                <option value="¾ S/b" data-price="1800">¾ S/b</option>
+                <option value="¾ S/C" data-price="1100">¾ S/C</option>
+                <option value="¾ R/b" data-price="1800">¾ R/b</option>
+                <option value="¾ R/C" data-price="1200">¾ R/C</option>
+                <option value="2*1 c" data-price="2050">2*1 c</option>
+                <option value="1½*1½ c" data-price="2050">1½*1½ C</option>
+                <option value="1*1 c" data-price="1350">1*1 c</option>
+                <option value="16mm rod" data-price="9700">16mm rod</option>
+                <option value="12mm rod" data-price="5500">12mm rod</option>
+                <option value="10mm rod" data-price="4000">10mm rod</option>
+                <option value="8mm rod" data-price="2550">8mm rod</option>
+                <option value="¼mm rod" data-price="350">¼mm rod</option>
+                <option value="12mm s/rod" data-price="2750">12mm s/rod</option>
+                <option value="10mm s/rod" data-price="1800">10mm s/rod</option>
+                <option value="2*2 Angle" data-price="4500">2*2 Angle</option>
+                <option value="1½*1½ Angle" data-price="3000">1½*1½</option>
+                <option value="1*1 Angle" data-price="1900">1*1 Angle</option>
+                <option value="¾ F/bar " data-price="1100">¾ F/bar</option>
+                <option value="1½ f/bar" data-price="2800">1½ f/bar</option>
+                <option value="2*2 F/bar" data-price="3800">2" F/bar</option>
+                <option value="mersh wire" data-price="6800">mersh wire</option>
+                <option value="Razor wire" data-price="16000">Razor wire</option>
+                <option value="B/wire" data-price="11500">B/wire</option>
+              </select>
+              
+             </td> 
+             
+              
+            <td>
+              <input type="number" placeholder="0" name="unit" class="unit" id="unit-1" onchange="getInput(1)">
+            </td>
+            <td>
+              <input type="number" placeholder="0" name="price" class="price" id="price-1" disabled>
+            </td>
+            <td>
+              <input type="number" placeholder="0" name="amount" class="amount" id="amount-1" disabled>
+            </td>
+            <td>
+              <span class="material-icons" action="delete" onclick="delRow(this)">delete_outline</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="dashed">
+              <div class="float">
+                <a href="#" class="float" id="add-row">
+                  <span class="material-icons plus">add</span>
+                </a>
+              </div>
+              
+            </td>
+            <td class="dashed"></td>
+            <td class="dashed"></td>
+            <td class="dashed"></td>
+            <td class="dashed"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="sum"><B> TOTAL</B>
+        <input type="text" placeholder="0.00" name="total" class="total" id="total" disabled>
+      </div>
+    
+     
+  
+
+  <script>
+    document.getElementById("add-row").addEventListener("click", (e) => {
+      e.preventDefault();
+      addNewRow();
+    });
+
+    function addNewRow() {
+      const tBody = document.getElementById("table-body");
+      const rowCounter = tBody.childElementCount - 1;
+      const row = document.createElement("tr");
+      row.className = "single-row";
+      row.innerHTML = `<td>
+                          <select class="product" onchange="getInput(${rowCounter})">
+                            <option value="">Select product</option>
+                            <option value="2*1 black" data-price="3350">2*1 black</option>
+                            <option value="2*2 black" data-price="4500">2*2 black</option>
+                            <option value="3*1½ black" data-price="5200">3*1½ black</option>
+                            <option value="2*1 B" data-price="">2*1 B </option>
+                <option value="1½*1½ B" data-price="3350">1½*1½ B</option>
+                <option value="1*1 S/B" data-price="2300">1*1 S/B</option>
+                <option value="1*1 R/B" data-price="2700">1*1 R/B</option>
+                <option value="¾ S/b" data-price="1800">¾ S/b</option>
+                <option value="¾ S/C" data-price="1100">¾ S/C</option>
+                <option value="¾ R/b" data-price="1800">¾ R/b</option>
+                <option value="¾ R/C" data-price="1200">¾ R/C</option>
+                <option value="2*1 c" data-price="2050">2*1 c</option>
+                <option value="1½*1½ c" data-price="2050">1½*1½c</option>
+                <option value="1*1 c" data-price="1350">1*1 c</option>
+                <option value="16mm rod" data-price="9700">16mm rod</option>
+                <option value="12mm rod" data-price="5500">12mm rod</option>
+                <option value="10mm rod" data-price="4000">10mm rod</option>
+                <option value="8mm rod" data-price="2550">8mm rod</option>
+                <option value="¼mm rod" data-price="350">¼mm rod</option>
+                <option value="12mm s/rod" data-price="2750">12mm s/rod</option>
+                <option value="10mm s/rod" data-price="1800">10mm s/rod</option>
+                <option value="2*2 Angle" data-price="4500">2*2 Angle</option>
+                <option value="1½*1½ Angle" data-price="3000">1½*1½ Angle</option>
+                <option value="1*1 Angle" data-price="1900">1*1 Angle</option>
+                <option value="¾ F/bar " data-price="1100">¾ F/bar</option>
+                <option value="1½ f/bar" data-price="2800">1½ f/bar</option>
+                <option value="2*2 F/bar" data-price="3800">2" F/bar</option>
+                <option value="mersh wire" data-price="6800">mersh wire</option>
+                <option value="Razor wire" data-price="16000">Razor wire</option>
+                <option value="B/wire" data-price="11500">B/wire</option>
+                 
+                          </select>
+                        </td>
+                                             
+                        <td>
+                          <input type="number" placeholder="0" name="unit" class="unit" id="unit-${rowCounter}" onchange="getInput(${rowCounter})">
+                        </td>
+                        <td>
+                          <input type="number" placeholder="0" name="price" class="price" id="price-${rowCounter}" disabled>
+                        </td>
+                        <td>
+                          <input type="number" placeholder="0" name="amount" class="amount" id="amount-${rowCounter}" disabled>
+                        </td>
+                        <td style="text-align: right;">
+                          <span class="material-icons" action="delete" onclick="delRow(this)">delete_outline</span>
+                        </td>`;
+
+      tBody.insertBefore(row, tBody.lastElementChild.previousElementSibling);
+      getInput(rowCounter);
+    }
+
+    function getInput(rowId) {
+      const productSelect = document.querySelector(`#table-body .single-row:nth-child(${rowId}) .product`);
+      const priceElement = document.getElementById(`price-${rowId}`);
+      const unit = document.querySelector(`#table-body .single-row:nth-child(${rowId}) .unit`);
+
+      if (productSelect.value !== "" && unit.value !== "") {
+        const selectedOption = productSelect.options[productSelect.selectedIndex];
+        const price = parseInt(selectedOption.dataset.price);
+        const unitValue = parseInt(unit.value);
+
+        priceElement.value = price;
+        document.getElementById(`amount-${rowId}`).value = price * unitValue;
+      } else {
+        priceElement.value = "";
+        document.getElementById(`amount-${rowId}`).value = "";
+      }
+
+      calculateTotal();
+    }
+
+    function delRow(element) {
+      const row = element.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      const amounts = Array.from(document.getElementsByClassName("amount"));
+      const totalElement = document.getElementById("total");
+      let total = 0;
+
+      amounts.forEach((amount) => {
+        if (amount.value !== "") {
+          total += parseInt(amount.value);
+        }
+      });
+
+      totalElement.value = total.toFixed(2);
+    }
+
+    printInvoice = () => {
+  window.print();
+};
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
